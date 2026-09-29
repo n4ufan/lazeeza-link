@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lazeeza</title>
+<!--
+  lazeeza.nauflow.com — the short link to the Lazeeza app. It only forwards: /#<code> goes to the
+  launcher (n4ufan.github.io/lazeeza-app, repo n4ufan/lazeeza-app), which opens the app with that code.
+  The code is after "#", so it never leaves the phone (not sent to GitHub, nor to WhatsApp's preview).
+  No code: the launcher uses the one this phone already has from an earlier visit.
+-->
+<script>
+  (function () {
+    var h = location.hash.slice(1), ok = function (k) { return /^[A-Za-z0-9_-]{8,}$/.test(k || ''); };
+    var code = ok(h) ? h : (h.match(/(?:^|&)k=([^&]+)/) || [])[1] || '';
+    location.replace('https://n4ufan.github.io/lazeeza-app/' + location.search + (ok(code) ? '#k=' + code : ''));
+  })();
+</script>
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#f6f4ef">
+<link rel="icon" type="image/png" href="icon-192.png">
+<!-- the preview card WhatsApp shows for the link -->
+<meta property="og:title" content="Lazeeza">
+<meta property="og:description" content="Open the Lazeeza app">
+<meta property="og:image" content="https://lazeeza.nauflow.com/preview.png">
+<meta property="og:url" content="https://lazeeza.nauflow.com/">
+<style>body { margin:0; background:#f6f4ef; }</style>
+</head>
+<body></body>
+</html>
