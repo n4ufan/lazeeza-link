@@ -5,8 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lazeeza</title>
 <!--
-  lazeeza.nauflow.com — the short link to the Lazeeza app. It only forwards: /#<code> goes to the
-  launcher (n4ufan.github.io/lazeeza-app, repo n4ufan/lazeeza-app), which opens the app with that code.
+  lazeeza.nauflow.com — the short link to the Lazeeza app. It only forwards: /#<code> goes to the app,
+  lazeeza-app.nauflow.com (the Node version on Hostinger, since 2026-10-14 — before that it went to the
+  launcher n4ufan.github.io/lazeeza-app, which opened the Apps Script version; going back = revert this commit).
   The code is after "#", so it never leaves the phone (not sent to GitHub, nor to WhatsApp's preview).
   No code: the launcher uses the one this phone already has from an earlier visit.
 -->
@@ -14,7 +15,7 @@
   (function () {
     var h = location.hash.slice(1), ok = function (k) { return /^[A-Za-z0-9_-]{8,}$/.test(k || ''); };
     var code = ok(h) ? h : (h.match(/(?:^|&)k=([^&]+)/) || [])[1] || '';
-    location.replace('https://n4ufan.github.io/lazeeza-app/' + location.search + (ok(code) ? '#k=' + code : ''));
+    location.replace('https://lazeeza-app.nauflow.com/' + (ok(code) ? '#k=' + code : ''));
   })();
 </script>
 <meta name="robots" content="noindex, nofollow">
